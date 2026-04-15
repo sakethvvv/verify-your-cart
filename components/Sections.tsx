@@ -75,6 +75,23 @@ const FraudTypeCard: React.FC<{ title: string; desc: string; icon: React.ReactNo
   </div>
 );
 
+const HowStepCard: React.FC<{ num: string; title: string; desc: string; color: string }> = ({ num, title, desc, color }) => (
+  <div className="bg-white rounded-3xl p-8 border border-slate-100 shadow-lg shadow-slate-200/40 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 h-full">
+    <div className={`w-14 h-14 rounded-2xl flex items-center justify-center text-2xl font-bold mb-6 ${color}`}>
+      {num}
+    </div>
+    <h3 className="text-xl font-bold text-slate-900 mb-3">{title}</h3>
+    <p className="text-slate-600 leading-relaxed font-medium">{desc}</p>
+  </div>
+);
+
+const SafetyTipBox: React.FC<{ title: string; desc: string }> = ({ title, desc }) => (
+  <div className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 hover:border-white/20 transition-all duration-300">
+    <h4 className="text-lg md:text-xl font-bold mb-2 text-white">{title}</h4>
+    <p className="text-slate-300 leading-relaxed">{desc}</p>
+  </div>
+);
+
 // --- Exported Sections ---
 
 export function ProblemSection() {
@@ -229,6 +246,102 @@ export function GuideSection() {
               desc="High probability of being a scam or low-quality clone. Avoid." 
               icon={<AlertOctagon size={24} className="text-red-500" />} 
             />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function HowItWorksSection() {
+  return (
+    <div className="py-32 bg-white relative border-t border-slate-100">
+      <div className="container mx-auto px-4 max-w-7xl">
+        
+        {/* Header */}
+        <div className="text-center mb-20 animate-fade-in-up">
+          <span className="text-blue-600 font-bold tracking-widest uppercase text-xs mb-3 block">
+            Smart Shopping Guide
+          </span>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6">
+            How Verify Your Cart Works
+          </h2>
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto font-medium leading-relaxed">
+            Verify Your Cart helps online buyers identify risky products by analyzing product links,
+            seller behavior, suspicious pricing, and review patterns using AI-powered fraud detection logic.
+          </p>
+        </div>
+
+        {/* 4 Step Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-24">
+          <HowStepCard
+            num="1"
+            title="Paste Product Link"
+            desc="Enter the product URL from an e-commerce website. The tool reads available product details for analysis."
+            color="bg-blue-100 text-blue-700"
+          />
+          <HowStepCard
+            num="2"
+            title="AI Analyzes Signals"
+            desc="Our AI checks seller credibility, suspicious pricing, review sentiment, rating patterns, and fraud indicators."
+            color="bg-purple-100 text-purple-700"
+          />
+          <HowStepCard
+            num="3"
+            title="Risk Score Generated"
+            desc="The system generates a fraud-risk score and explains whether the product appears safe, suspicious, or high risk."
+            color="bg-emerald-100 text-emerald-700"
+          />
+          <HowStepCard
+            num="4"
+            title="Shop Smarter"
+            desc="Use the results to avoid risky purchases, compare listings, and make safer buying decisions online."
+            color="bg-amber-100 text-amber-700"
+          />
+        </div>
+
+        {/* Buyer Safety Tips */}
+        <div className="bg-gradient-to-br from-slate-900 to-blue-950 rounded-[2.5rem] p-8 md:p-12 lg:p-16 text-white shadow-2xl overflow-hidden relative">
+          <div className="absolute top-0 right-0 w-72 h-72 bg-blue-600 rounded-full blur-[90px] opacity-20 -mr-20 -mt-20"></div>
+          <div className="relative z-10">
+            <div className="mb-12">
+              <span className="text-blue-300 font-bold tracking-widest uppercase text-xs mb-3 block">
+                Buyer Protection Tips
+              </span>
+              <h3 className="text-3xl md:text-4xl font-extrabold mb-4">
+                Tips to Avoid Fake Products Online
+              </h3>
+              <p className="text-slate-300 text-lg max-w-3xl leading-relaxed">
+                Even with AI analysis, smart buying habits matter. Follow these best practices before purchasing from any online store.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <SafetyTipBox
+                title="1. Check Seller Reputation"
+                desc="Prefer trusted sellers with a long history, verified badges, and consistently positive customer feedback."
+              />
+              <SafetyTipBox
+                title="2. Beware of Unrealistic Prices"
+                desc="If the product is significantly cheaper than market value, it may be counterfeit, defective, or misleading."
+              />
+              <SafetyTipBox
+                title="3. Read Reviews Carefully"
+                desc="Watch for repetitive wording, sudden review spikes, overly generic praise, or suspiciously similar 5-star ratings."
+              />
+              <SafetyTipBox
+                title="4. Verify Return Policies"
+                desc="A reliable product listing should have clear return, refund, and replacement policies visible before checkout."
+              />
+              <SafetyTipBox
+                title="5. Compare Multiple Listings"
+                desc="Check the same product from multiple sellers to identify abnormal prices, weak descriptions, or missing details."
+              />
+              <SafetyTipBox
+                title="6. Use AI as a Safety Layer"
+                desc="Use Verify Your Cart as a decision-support tool, but always combine results with your own judgment before buying."
+              />
+            </div>
           </div>
         </div>
       </div>
