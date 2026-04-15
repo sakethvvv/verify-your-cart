@@ -2,7 +2,7 @@ import React from 'react';
 import { Navbar } from './components/Navbar';
 import { Analyzer } from './components/Analyzer';
 import { Footer } from './components/Footer';
-import { FeaturesSection, GuideSection, TipsSection, TeamSection, VisionSection, ContactSection, ProblemSection } from './components/Sections';
+import { FeaturesSection, GuideSection, TipsSection, TeamSection, VisionSection, ContactSection, ProblemSection, HowItWorksSection } from './components/Sections';
 
 const App: React.FC = () => {
   return (
@@ -14,7 +14,7 @@ const App: React.FC = () => {
           <Analyzer />
         </section>
 
-        {/* New Problem Narrative Section */}
+        {/* Problem Narrative Section */}
         <section id="problem" className="scroll-mt-24">
           <ProblemSection />
         </section>
@@ -29,6 +29,11 @@ const App: React.FC = () => {
 
         <section id="guide" className="scroll-mt-24">
           <GuideSection />
+        </section>
+
+        {/* New How It Works + Buyer Safety Section */}
+        <section id="how-it-works" className="scroll-mt-24">
+          <HowItWorksSection />
         </section>
 
         <VisionSection />
