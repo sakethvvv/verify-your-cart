@@ -3,16 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Verify Your Cart | AI-Powered Security</title>
+    <title>Verify Your Cart | AI Product Safety Checker</title>
+    <meta
+      name="description"
+      content="Verify Your Cart helps shoppers evaluate product listings for suspicious patterns using AI-assisted analysis, buyer safety guidance, and fraud awareness education."
+    />
+    <meta
+      name="keywords"
+      content="fake product detector, scam product checker, ecommerce fraud, online shopping safety, product authenticity checker"
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Saketh Vedullapalli" />
+    <link rel="canonical" href="https://verify-your-cart.vercel.app/" />
 
-    <!-- Google AdSense Verification -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4287778391866492"
-         crossorigin="anonymous"></script>
-    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Verify Your Cart | AI Product Safety Checker" />
+    <meta
+      property="og:description"
+      content="Check suspicious product listings, learn scam red flags, and shop safer online with Verify Your Cart."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://verify-your-cart.vercel.app/" />
+
+    <!-- Google AdSense -->
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4287778391866492"
+      crossorigin="anonymous"
+    ></script>
+
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS (Script version for simplicity, but Vite will bundle CSS in production if configured) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CDN (temporary because your project currently depends on it) -->
+    <!-- Later, move this into proper Tailwind CSS pipeline for even better production quality -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -31,7 +58,7 @@
               'pulse-glow': 'pulseGlow 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
               'float': 'float 3s ease-in-out infinite',
               'scale-in': 'scaleIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
-              'spin-slow': 'spin 3s linear infinite', 
+              'spin-slow': 'spin 3s linear infinite',
               'shimmer': 'shimmer 2.5s infinite',
               'shake-subtle': 'shakeSubtle 4s ease-in-out infinite',
               'shake-strong': 'shakeStrong 0.5s ease-in-out',
@@ -82,11 +109,12 @@
             },
           },
         },
-      }
+      };
     </script>
+
     <style>
-      body { 
-        font-family: 'Plus Jakarta Sans', sans-serif; 
+      body {
+        font-family: 'Plus Jakarta Sans', sans-serif;
         -webkit-font-smoothing: antialiased;
         background-color: #f8fafc;
         color: #1e293b;
@@ -109,20 +137,6 @@
       ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
       ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
     </style>
-
-    <script type="importmap">
-    {
-      "imports": {
-        "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
-        "vite": "https://esm.sh/vite@^7.3.1",
-        "react/": "https://esm.sh/react@^19.2.4/",
-        "react": "https://esm.sh/react@^19.2.4",
-        "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
-        "@google/genai": "https://esm.sh/@google/genai@^1.39.0",
-        "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2"
-      }
-    }
-    </script>
   </head>
 
   <body class="bg-slate-50 text-slate-800 antialiased selection:bg-indigo-100 selection:text-indigo-900">
