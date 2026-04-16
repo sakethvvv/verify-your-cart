@@ -7,8 +7,7 @@ import {
   TeamSection,
   VisionSection,
   ContactSection,
-  ProblemSection,
-  HowItWorksSection
+  ProblemSection
 } from '../components/Sections';
 
 const HomePage: React.FC = () => {
@@ -32,10 +31,6 @@ const HomePage: React.FC = () => {
 
       <section id="guide" className="scroll-mt-24">
         <GuideSection />
-      </section>
-
-      <section id="how-it-works" className="scroll-mt-24">
-        <HowItWorksSection />
       </section>
 
       <VisionSection />
