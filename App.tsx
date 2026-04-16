@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 
-import HomePage from './pages/Homepage';
+import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
@@ -18,7 +18,6 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
-
       <main className="flex-grow pt-20 md:pt-24">
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -33,7 +32,6 @@ const App: React.FC = () => {
           <Route path="/common-online-shopping-scams" element={<CommonScamsPage />} />
         </Routes>
       </main>
-
       <Footer />
     </div>
   );
