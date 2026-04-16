@@ -2,22 +2,12 @@ import { GoogleGenAI, Type } from "@google/genai";
 import { AnalysisResult } from "../types";
 import { mockAnalyzeProduct } from "./mockAnalysisService";
 
-// ✅ VITE-SAFE environment variable (FRONTEND)
 const apiKey = import.meta.env.VITE_GOOGLE_API_KEY;
-
-// TEMP: confirm env injection (remove later if you want)
-console.log("API KEY:", apiKey);
-
-// Initialize AI only if key exists
 const ai = apiKey ? new GoogleGenAI({ apiKey }) : null;
 
-/**
- * Analyzes a product URL to determine if it's fake or genuine.
- */
 export const analyzeProduct = async (url: string): Promise<AnalysisResult> => {
-  // ✅ Fallback if API key missing
   if (!apiKey || !ai) {
-    console.warn("API Key missing. Using Mock Analysis Service.");
+    console.warn("API key missing. Using mock analysis service.");
     return mockAnalyzeProduct(url);
   }
 
@@ -25,14 +15,15 @@ export const analyzeProduct = async (url: string): Promise<AnalysisResult> => {
     const response = await ai.models.generateContent({
       model: "gemini-2.0-flash-exp",
       contents: `
-You are an expert "Fake Online Product Detector" AI.
+You are an expert AI assistant for e-commerce risk awareness.
 
 Analyze this product URL: ${url}
 
 Rules:
-- Trusted domains → high trust
-- Fake domains / typos → mark Fake
-- Extremely low price → Suspicious/Fake
+- This is an educational risk assessment, not a guarantee of authenticity.
+- Trusted domains can increase trust score.
+- Suspicious domains, typos, unrealistic discounts, poor seller signals, and misleading descriptions should reduce trust.
+- If evidence is uncertain, return Suspicious rather than Fake.
 
 Return ONLY JSON.
       `,
@@ -64,22 +55,21 @@ Return ONLY JSON.
     const result = JSON.parse(response.text || "{}");
 
     const sources: string[] = [];
-    response.candidates?.[0]?.groundingMetadata?.groundingChunks?.forEach(
-      (chunk: any) => {
-        if (chunk.web?.uri) sources.push(chunk.web.uri);
-      }
-    );
+    response.candidates?.[0]?.groundingMetadata?.groundingChunks?.forEach((chunk: any) => {
+      if (chunk.web?.uri) sources.push(chunk.web.uri);
+    });
 
     let verdict: AnalysisResult["verdict"] = "Suspicious";
     const v = (result.verdict || "").toLowerCase();
+
     if (v.includes("genuine")) verdict = "Genuine";
     else if (v.includes("fake")) verdict = "Fake";
 
     return {
       trust_score: result.trust_score ?? 0,
       verdict,
-      reasons: result.reasons ?? ["Analysis based on domain reputation."],
-      advice: result.advice ?? "Proceed with caution.",
+      reasons: result.reasons ?? ["Analysis based on domain reputation and listing signals."],
+      advice: result.advice ?? "Proceed with caution and verify seller details independently.",
       url,
       timestamp: new Date().toISOString(),
       sources: sources.slice(0, 3),
@@ -92,7 +82,7 @@ Return ONLY JSON.
       }
     };
   } catch (error) {
-    console.error("AI Analysis Failed:", error);
+    console.error("AI analysis failed:", error);
     return mockAnalyzeProduct(url);
   }
 };
