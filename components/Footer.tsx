@@ -73,12 +73,12 @@ export const Footer: React.FC = () => {
           </div>
 
           <div className="md:ml-auto">
-            <h4 className="text-white font-bold mb-8 tracking-wide text-xs uppercase opacity-90">Resources</h4>
+            <h4 className="text-white font-bold mb-8 tracking-wide text-xs uppercase opacity-90">Guides</h4>
             <ul className="space-y-4 text-sm font-medium">
-              <li><button onClick={() => goHomeAndScroll('guide')} className="hover:text-white transition-all">User Guide</button></li>
-              <li><button onClick={() => goHomeAndScroll('tips')} className="hover:text-white transition-all">Safety Tips</button></li>
+              <li><Link to="/how-to-spot-fake-products" className="hover:text-white transition-all">How to Spot Fake Products</Link></li>
+              <li><Link to="/safe-online-shopping-guide" className="hover:text-white transition-all">Safe Online Shopping Guide</Link></li>
+              <li><Link to="/common-online-shopping-scams" className="hover:text-white transition-all">Common Shopping Scams</Link></li>
               <li><Link to="/faq" className="hover:text-white transition-all">FAQ</Link></li>
-              <li><Link to="/disclaimer" className="hover:text-white transition-all">Disclaimer</Link></li>
             </ul>
           </div>
 
@@ -87,6 +87,7 @@ export const Footer: React.FC = () => {
             <ul className="space-y-4 text-sm font-medium">
               <li><Link to="/privacy-policy" className="hover:text-white transition-all">Privacy Policy</Link></li>
               <li><Link to="/terms-and-conditions" className="hover:text-white transition-all">Terms & Conditions</Link></li>
+              <li><Link to="/disclaimer" className="hover:text-white transition-all">Disclaimer</Link></li>
             </ul>
           </div>
         </div>
