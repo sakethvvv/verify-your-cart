@@ -1,0 +1,8 @@
+{
+  "name": "VERIFY YOUR CART",
+  "description": "Check it right. Buy it bright. Full-stack AI cybersecurity and e-commerce safety platform created by Saketh Vedullapalli.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://verify-your-cart.vercel.app/sitemap.xml
